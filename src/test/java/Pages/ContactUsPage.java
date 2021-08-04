@@ -74,9 +74,10 @@ public class ContactUsPage extends BasePage{
     }
 
     public ContactUsPage selectItemFromSubjectHeading (By elementBy){
-        isElementPresent(headerSubjectHeadingElement);
+        //isElementPresent(headerSubjectHeadingElement);
         isElementPresent(subjectHeadingElement);
         clickByElementBy(subjectHeadingElement);
+        waitForElementVisibility(elementBy);
         clickByElementBy(elementBy);
         return this;
     }

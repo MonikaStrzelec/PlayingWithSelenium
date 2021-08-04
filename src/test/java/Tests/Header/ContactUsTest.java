@@ -12,6 +12,7 @@ public class ContactUsTest extends BaseTest {
         HeaderPage headerPage = new HeaderPage(driver);
         headerPage.openHomePage();
         if (headerPage.isElementPresent(headerPage.concactInNav)) {
+            headerPage.waitForElementVisibility(headerPage.concactInNav);
             headerPage.clickByElementBy(headerPage.concactInNav);
             headerPage.assertEqualsForExpectedUML(headerPage.concactUML);
         }
@@ -35,13 +36,14 @@ public class ContactUsTest extends BaseTest {
 
     @Test
     public void sendingEmailWithValidDataForWebmaster() {
-        locatingConcactInNav();
+        HeaderPage headerPage = new HeaderPage(driver);
+        headerPage.openHomePage();
+        headerPage.clickByElementBy(headerPage.concactInNav);
+        headerPage.assertEqualsForExpectedUML(headerPage.concactUML);
+
         ContactUsPage contactUsPage = new ContactUsPage(driver);
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.attachFileallElement));
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.textAttachFileallElement));
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.buttonAttachFileallElement));
-        contactUsPage.addAttachFileselect(contactUsPage.testEmailExpectedFileName);
         contactUsPage.selectItemFromSubjectHeading(contactUsPage.webmasterInSubjectHeading);
+        contactUsPage.addAttachFileselect(contactUsPage.testEmailExpectedFileName);
         contactUsPage.contactUsDetails(contactUsPage.goodEmail, contactUsPage.goodOrderReference, contactUsPage.goodMessage);
         contactUsPage.assertEqualsForExpectedUML(contactUsPage.concactUsWithGoodDataUML);
         Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.alertSuccess));
@@ -50,19 +52,24 @@ public class ContactUsTest extends BaseTest {
 
     @Test
     public void sendingEmailWithNoData() {
-        locatingConcactInNav();
+        HeaderPage headerPage = new HeaderPage(driver);
+        headerPage.openHomePage();
+        headerPage.clickByElementBy(headerPage.concactInNav);
+
         ContactUsPage contactUsPage = new ContactUsPage(driver);
-        //Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.attachFileallElement));
-        //Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.textAttachFileallElement));
-        //Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.buttonAttachFileallElement));
-        contactUsPage.contactUsDetails(contactUsPage.emptyEmail, contactUsPage.emptyOrderReference, contactUsPage.emptyMessage);
+        contactUsPage.waitForElementVisibility(contactUsPage.buttonMessage);
+        contactUsPage.clickByElementBy(contactUsPage.buttonMessage);
+        contactUsPage.waitForElementVisibility(contactUsPage.alertDanger);
         Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.alertDanger));
-        Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertDanger), "Invalid email address.");
+        Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertDanger), "There is 1 error\nInvalid email address.");
     }
 
     @Test
     public void sendingEmailWithNoSubjectHeading() {
-        locatingConcactInNav();
+        HeaderPage headerPage = new HeaderPage(driver);
+        headerPage.openHomePage();
+        headerPage.clickByElementBy(headerPage.concactInNav);
+
         ContactUsPage contactUsPage = new ContactUsPage(driver);
         Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.attachFileallElement));
         Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.textAttachFileallElement));
@@ -70,12 +77,15 @@ public class ContactUsTest extends BaseTest {
         contactUsPage.addAttachFileselect(contactUsPage.testEmailExpectedFileName);
         contactUsPage.contactUsDetails(contactUsPage.goodEmail, contactUsPage.goodOrderReference, contactUsPage.goodMessage);
         Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.alertDanger));
-        Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertDanger), "Please select a subject from the list provided.");
+        Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertDanger), "There is 1 error\nPlease select a subject from the list provided.");
     }
 
     @Test
     public void sendingEmailWithNoEmail() {
-        locatingConcactInNav();
+        HeaderPage headerPage = new HeaderPage(driver);
+        headerPage.openHomePage();
+        headerPage.clickByElementBy(headerPage.concactInNav);
+
         ContactUsPage contactUsPage = new ContactUsPage(driver);
         Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.attachFileallElement));
         Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.textAttachFileallElement));
@@ -83,18 +93,14 @@ public class ContactUsTest extends BaseTest {
         contactUsPage.addAttachFileselect(contactUsPage.testEmailExpectedFileName);
         contactUsPage.selectItemFromSubjectHeading(contactUsPage.customerServiceInSubjectHeading);
         contactUsPage.contactUsDetails(contactUsPage.emptyEmail, contactUsPage.goodOrderReference, contactUsPage.goodMessage);
-        contactUsPage.assertEqualsForExpectedUML(contactUsPage.concactUsWithGoodDataUML);
         Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.alertDanger));
-        Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertDanger), "Invalid email address.");
+        Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertDanger), "There is 1 error\nInvalid email address.");
     }
 
     @Test
     public void sendingEmailWithNoOrderReference() {
         locatingConcactInNav();
         ContactUsPage contactUsPage = new ContactUsPage(driver);
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.attachFileallElement));
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.textAttachFileallElement));
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.buttonAttachFileallElement));
         contactUsPage
                 .addAttachFileselect(contactUsPage.testEmailExpectedFileName)
                 .selectItemFromSubjectHeading(contactUsPage.customerServiceInSubjectHeading)
@@ -140,7 +146,7 @@ public class ContactUsTest extends BaseTest {
                         .goodOrderReference, contactUsPage
                         .emptyMessage)
                 .assertEqualsForExpectedUML(contactUsPage.concactUsWithGoodDataUML);
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.alertSuccess));
-        Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertSuccess), "Your message has been successfully sent to our team.");
+        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.alertDanger));
+        Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertDanger), "There is 1 error\nThe message cannot be blank.");
     }
 }

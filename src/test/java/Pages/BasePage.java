@@ -16,7 +16,7 @@ public class BasePage extends LinksToPages{
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 15);
+        wait = new WebDriverWait(driver, 30);
     }
 
     public void openHomePage(){
