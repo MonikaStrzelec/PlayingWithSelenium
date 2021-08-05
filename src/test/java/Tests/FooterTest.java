@@ -83,30 +83,45 @@ public class FooterTest extends BaseTest {
             Assertions.assertTrue(footerPage.isElementPresent(footerPage.personalInformationMyAccountContainer));
         }
     }
-    @Test //popraw
+    @Test
     public void locatingElementsStoreInformationInFooter() {
         FooterPage footerPage = new FooterPage(driver);
         footerPage.openHomePage();
         if (footerPage.isElementPresent(footerPage.storeInformationContainerInFooter)) {
-            footerPage.isElementPresent(footerPage.headerStoreInformationContainer);
-            footerPage.isElementPresent(footerPage.storeInformationContainer);
-            footerPage.isElementPresent(footerPage.phoneElementsInStoreInformationContainer);
+            Assertions.assertTrue(footerPage.isElementPresent(footerPage.headerStoreInformationContainer));
+            Assertions.assertTrue(footerPage.isElementPresent(footerPage.storeInformationContainer));
+            Assertions.assertTrue(footerPage.isElementPresent(footerPage.phoneElementsInStoreInformationContainer));
             Assertions.assertEquals(footerPage.readText(footerPage.phoneNumberElementsStoreInformationContainer), footerPage.phoneNumberStoreInformationContainer);
 
-            footerPage.isElementPresent(footerPage.emailElementsInStoreInformationContainer);
+            Assertions.assertTrue(footerPage.isElementPresent(footerPage.emailElementsInStoreInformationContainer));
             Assertions.assertEquals(footerPage.readText(footerPage.emailTextInEmailStoreInformationContainer), footerPage.emailStoreInformationContainer);
         }
     }
 
-    @Test //popraw
+
+    @Test
     public void locatingSignatureAndReservedSignInFooter() {
         FooterPage footerPage = new FooterPage(driver);
         footerPage.openHomePage();
         if (footerPage.isElementPresent(footerPage.signatureOfPageInFooter)) {
             Assertions.assertTrue(footerPage.isElementPresent(footerPage.yearSignatureOfPageInFooter));
-            //Assertions.assertEquals(footerPage.readText(footerPage.yearSignatureOfPageInFooter), footerPage.textYearSignatureOfPageInFooter);
             Assertions.assertTrue(footerPage.isElementPresent(footerPage.textSignatureOfPageInFooter));
-            Assertions.assertEquals(footerPage.readText(footerPage.textSignatureOfPageInFooter), footerPage.textInSignatureOfPageInFooter);
+            Assertions.assertEquals(footerPage.readText(footerPage.yearSignatureOfPageInFooter), footerPage.textYearSignatureOfPageInFooter);
+        }
+    }
+
+    @Test
+    public void locatingWebsiteInformation () {
+        FooterPage footerPage = new FooterPage(driver);
+        footerPage.openHomePage();
+        if (footerPage.isElementPresent(footerPage.storeInformationContainerInFooter)) {
+            Assertions.assertTrue(footerPage.isElementPresent(footerPage.headerStoreInformationContainer)); //!
+            Assertions.assertTrue(footerPage.isElementPresent(footerPage.storeInformationContainer));
+            Assertions.assertTrue(footerPage.isElementPresent(footerPage.phoneElementsInStoreInformationContainer));
+            Assertions.assertEquals(footerPage.readText(footerPage.phoneNumberElementsStoreInformationContainer), footerPage.phoneNumberStoreInformationContainer);
+
+            Assertions.assertTrue(footerPage.isElementPresent(footerPage.emailElementsInStoreInformationContainer));
+            Assertions.assertEquals(footerPage.readText(footerPage.emailTextInEmailStoreInformationContainer), footerPage.emailStoreInformationContainer);
         }
     }
 }

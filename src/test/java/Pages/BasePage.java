@@ -13,8 +13,7 @@ public class BasePage extends LinksToPages{
     public WebDriver driver;
     public WebDriverWait wait;
 
-
-    public BasePage(WebDriver driver) {
+    public BasePage(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver, 30);
     }
@@ -23,31 +22,32 @@ public class BasePage extends LinksToPages{
         driver.get(baseURL);
     }
 
+
     //Wait Wrapper Method
-    public WebElement waitForElementVisibility(By elementBy) {
+    public WebElement waitForElementVisibility(By elementBy){
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(elementBy));
         return element;
     }
 
     //Click Method
-    public void clickByElementBy(By elementBy) {
+    public void clickByElementBy(By elementBy){
         waitForElementVisibility(elementBy).click();
     }
 
     //Write Text
-    public void writeText(By elementBy, String text) {
+    public void writeText(By elementBy, String text){
         waitForElementVisibility(elementBy);
         driver.findElement(elementBy).sendKeys(text);
     }
 
     //Read Text
-    public String readText(By elementBy) {
+    public String readText(By elementBy){
         waitForElementVisibility(elementBy);
         return driver.findElement(elementBy).getText();
     }
 
     //Assert
-    public void assertEqualsForExpectedUML(String expectedText) {
+    public void assertEqualsForExpectedUML(String expectedText){
         Assertions.assertEquals(driver.getCurrentUrl(), expectedText);
     }
 
@@ -63,7 +63,7 @@ public class BasePage extends LinksToPages{
     }
 
     //button
-    public void radiobuttonCheckedOrUncheckedWithAssertTrue(By elementBy) {
+    public void radiobuttonCheckedOrUncheckedWithAssertTrue(By elementBy){
         waitForElementVisibility(elementBy);
         assertTrue(driver.findElement(elementBy).isSelected());
     }

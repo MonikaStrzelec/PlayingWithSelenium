@@ -45,8 +45,7 @@ public class FooterPage extends BasePage {
     public By signatureOfPageInFooter = By.xpath("//*[@id=\"footer\"]/div/section[4]");
     public By yearSignatureOfPageInFooter = By.xpath("//*[contains(text(),'2014')]");
     public By textSignatureOfPageInFooter = By.xpath("//*[@id=\"footer\"]/div/section[4]/div/a");
-    public String textYearSignatureOfPageInFooter = "© 2014";
-    public String textInSignatureOfPageInFooter = "Ecommerce software by PrestaShop™";
+    public String textYearSignatureOfPageInFooter = "© 2014 Ecommerce software by PrestaShop™";
 
     // My account:
     public By myAccountContainerInFooter = By.xpath("//*[@id=\"footer\"]/div/section[5]");
@@ -59,14 +58,14 @@ public class FooterPage extends BasePage {
 
     //Store information
     public By storeInformationContainerInFooter = By.id("block_contact_infos");
-    public By headerStoreInformationContainer = By.id("//*[contains(text(),'Store information')]");
+    public By headerStoreInformationContainer = By.xpath("//*[contains(text(),'Store information')]");
 
-    public By storeInformationContainer = By.id("//*[@id=\"block_contact_infos\"]/div/ul/li[1]");
-    public By phoneElementsInStoreInformationContainer = By.id("//*[@id=\"block_contact_infos\"]/div/ul/li[2]");
+    public By storeInformationContainer = By.xpath("//*[@id=\"block_contact_infos\"]/div/ul/li[1]");
+    public By phoneElementsInStoreInformationContainer = By.xpath("//*[@id=\"block_contact_infos\"]/div/ul/li[2]");
     public String phoneNumberStoreInformationContainer = "(347) 466-7432";
     public By phoneNumberElementsStoreInformationContainer = By.xpath("//*[@id='block_contact_infos']/div/ul/li[2]/span");
 
-    public By emailElementsInStoreInformationContainer = By.id("//*[@id=\"block_contact_infos\"]/div/ul/li[3]");
+    public By emailElementsInStoreInformationContainer = By.xpath("//*[@id=\"block_contact_infos\"]/div/ul/li[3]");
     public String emailStoreInformationContainer = "support@seleniumframework.com";
-    public By emailTextInEmailStoreInformationContainer = By.xpath("//*[contains(text(),'support@seleniumframework.com')]");
+    public By emailTextInEmailStoreInformationContainer = By.xpath("//*[@id=\"block_contact_infos\"]/div/ul/li[3]/span/a");
 }
