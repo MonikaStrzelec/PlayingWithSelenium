@@ -98,23 +98,28 @@ public class SingInTest extends BaseTest {
     public void locatingCreateAnAccount() {
         SingInPage singInPage = new SingInPage(driver);
         locatingSingInInNav();
-        Assertions.assertTrue(singInPage.isElementPresent(singInPage.createAnAccountContainer));
-        Assertions.assertTrue(singInPage.isElementPresent(singInPage.textInCreateAnAccount));
-        Assertions.assertTrue(singInPage.isElementPresent(singInPage.labelInCreateAnAccount));
-        Assertions.assertTrue(singInPage.isElementPresent(singInPage.emailCreateElement));
-        Assertions.assertTrue(singInPage.isElementPresent(singInPage.buttonCreateAnAccount));
+        Assertions.assertAll(
+                ()->Assertions.assertTrue(singInPage.isElementPresent(singInPage.createAnAccountContainer)),
+                ()->Assertions.assertTrue(singInPage.isElementPresent(singInPage.textInCreateAnAccount)),
+                ()->Assertions.assertTrue(singInPage.isElementPresent(singInPage.labelInCreateAnAccount)),
+                ()->Assertions.assertTrue(singInPage.isElementPresent(singInPage.emailCreateElement)),
+                ()->Assertions.assertTrue(singInPage.isElementPresent(singInPage.buttonCreateAnAccount))
+        );
+
     }
 
     @Test
     public void locatingAlreadyRegisteredInSingInPage() {
         SingInPage singInPage = new SingInPage(driver);
         locatingSingInInNav();
-        Assertions.assertTrue(singInPage.isElementPresent(singInPage.AlreadyRegisteredContainer));
-        Assertions.assertTrue(singInPage.isElementPresent(singInPage.emailLabelInAlreadyRegistered));
-        Assertions.assertTrue(singInPage.isElementPresent(singInPage.emailInAlreadyRegistered));
-        Assertions.assertTrue(singInPage.isElementPresent(singInPage.passwordLabelInAlreadyRegistered));
-        Assertions.assertTrue(singInPage.isElementPresent(singInPage.passwordInAlreadyRegistered));
-        Assertions.assertTrue(singInPage.isElementPresent(singInPage.forgotPasswordButton));
-        Assertions.assertTrue(singInPage.isElementPresent(singInPage.loginButton));
+        Assertions.assertAll(
+                ()->Assertions.assertTrue(singInPage.isElementPresent(singInPage.AlreadyRegisteredContainer)),
+                ()->Assertions.assertTrue(singInPage.isElementPresent(singInPage.emailLabelInAlreadyRegistered)),
+                ()->Assertions.assertTrue(singInPage.isElementPresent(singInPage.emailInAlreadyRegistered)),
+                ()->Assertions.assertTrue(singInPage.isElementPresent(singInPage.passwordLabelInAlreadyRegistered)),
+                ()->Assertions.assertTrue(singInPage.isElementPresent(singInPage.passwordInAlreadyRegistered)),
+                ()->Assertions.assertTrue(singInPage.isElementPresent(singInPage.forgotPasswordButton)),
+                ()->Assertions.assertTrue(singInPage.isElementPresent(singInPage.loginButton))
+        );
     }
 }

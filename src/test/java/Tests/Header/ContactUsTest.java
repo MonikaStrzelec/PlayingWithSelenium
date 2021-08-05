@@ -71,9 +71,6 @@ public class ContactUsTest extends BaseTest {
         headerPage.clickByElementBy(headerPage.concactInNav);
 
         ContactUsPage contactUsPage = new ContactUsPage(driver);
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.attachFileallElement));
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.textAttachFileallElement));
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.buttonAttachFileallElement));
         contactUsPage.addAttachFileselect(contactUsPage.testEmailExpectedFileName);
         contactUsPage.contactUsDetails(contactUsPage.goodEmail, contactUsPage.goodOrderReference, contactUsPage.goodMessage);
         Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.alertDanger));
@@ -87,9 +84,6 @@ public class ContactUsTest extends BaseTest {
         headerPage.clickByElementBy(headerPage.concactInNav);
 
         ContactUsPage contactUsPage = new ContactUsPage(driver);
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.attachFileallElement));
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.textAttachFileallElement));
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.buttonAttachFileallElement));
         contactUsPage.addAttachFileselect(contactUsPage.testEmailExpectedFileName);
         contactUsPage.selectItemFromSubjectHeading(contactUsPage.customerServiceInSubjectHeading);
         contactUsPage.contactUsDetails(contactUsPage.emptyEmail, contactUsPage.goodOrderReference, contactUsPage.goodMessage);
@@ -117,9 +111,6 @@ public class ContactUsTest extends BaseTest {
     public void sendingEmailWithNoAttachFile() {
         locatingConcactInNav();
         ContactUsPage contactUsPage = new ContactUsPage(driver);
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.attachFileallElement));
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.textAttachFileallElement));
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.buttonAttachFileallElement));
         contactUsPage
                 .selectItemFromSubjectHeading(contactUsPage.customerServiceInSubjectHeading)
                 .contactUsDetails(contactUsPage
@@ -135,9 +126,6 @@ public class ContactUsTest extends BaseTest {
     public void sendingEmailWithNoMessage() {
         locatingConcactInNav();
         ContactUsPage contactUsPage = new ContactUsPage(driver);
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.attachFileallElement));
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.textAttachFileallElement));
-        Assertions.assertTrue(contactUsPage.isElementPresent(contactUsPage.buttonAttachFileallElement));
         contactUsPage
                 .addAttachFileselect(contactUsPage.testEmailExpectedFileName)
                 .selectItemFromSubjectHeading(contactUsPage.customerServiceInSubjectHeading)

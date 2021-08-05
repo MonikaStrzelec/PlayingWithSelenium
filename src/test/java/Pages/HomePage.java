@@ -1,12 +1,15 @@
 package Pages;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 public class HomePage extends BasePage{
 //    public HomePage(WebDriver driver) {
@@ -37,7 +40,7 @@ public class HomePage extends BasePage{
     @FindBy(id="home-page-tabs") WebElement homePageTabs; //elemen na którym jest popular i best
     @FindBy(id="homefeatured") WebElement homeFeatured; //zbiera obrazki z ciuchami. spr czy lista ma 7 elementów
     @FindBy(id="blockbestsellers") public WebElement blockbestsellers; //zbiera obrazki bestsellers
-    @FindBy(id="htmlcontent_home") public WebElement  homeContent; //mix zdjęć
+    @FindBy(id="htmlcontent_home") public WebElement  homeContent;
     @FindBy(xpath="//*[@id=\"htmlcontent_home\"]/ul/li[1]") public WebElement firstElementInHomeContent;
     @FindBy(xpath="//*[@id=\"htmlcontent_home\"]/ul/li[2]") public WebElement secondElementInHomeContent;
     @FindBy(xpath="//*[@id=\"htmlcontent_home\"]/ul/li[3]") public WebElement thirdElementInHomeContent;
@@ -69,24 +72,39 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//*[@id=\"cmsinfo_block\"]/div[1]/ul/li[3]/div/h3") public WebElement headerHowToPayDues;
 
 
-    @FindBy(xpath="//*[@id=\"home-page-tabs\"]/li[1]/a") //popular
-    public WebElement popular;
+    @FindBy(xpath="//*[@id=\"home-page-tabs\"]/li[1]/a") public WebElement popular;
+    @FindBy(xpath="//*[@id=\"home-page-tabs\"]/li[2]/a") public WebElement bestSellers;
 
-    @FindBy(xpath="//*[@id=\"home-page-tabs\"]/li[2]/a") //best
-    public WebElement bestSellers;
+    @FindBy(xpath="//*[@id=\"homefeatured\"]/li[1]/div") public WebElement allElementWithPhoto;
+    @FindBy(xpath="//*[@id=\"homefeatured\"]/li[1]/div/div[1]") public WebElement photoInAllElementInAllElementWithPhoto;
+    @FindBy(xpath="//*[@id=\"homefeatured\"]/li[1]/div/div[2]") public WebElement allTextBelowPhotoInAllElementWithPhoto;
+    @FindBy(xpath="//*[@id=\"homefeatured\"]/li[1]/div/div[2]/h5/a") public WebElement photoCaptionWithProduct;
+    @FindBy(xpath="//*[@id=\"homefeatured\"]/li[1]/div/div[2]/div[1]") public WebElement priceForProductInAllElementWithPhoto;
+    @FindBy(xpath="//*[@id=\"homefeatured\"]/li[1]/div/div[2]/div[2]/a[1]") public WebElement buttonAddToCardInAllElementWithPhoto;
+    @FindBy(xpath="//*[@id=\"homefeatured\"]/li[1]/div/div[2]/div[2]/a[2]") public WebElement buttonMoreInAllElementWithPhoto;
+
+
+    //@FindBy(xpath="//*[@id=\"homefeatured\"]/li") WebElement element; //ile elementów? zwraca 7
+
+    By element = By.xpath("//*[@id=\\\"homefeatured\\\"]/li");
+//@Test
+//public void test () {
+//    HomePage homePage = new HomePage(driver);
+//    homePage.openHomePage();
+//    element.size();
+//}
+
 
     public void visibleWebElement (WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
         Assertions.assertTrue(element.isDisplayed());
     }
 
-    //Write Text
     public void writeTextForWebElement (WebElement element, String text){
         wait.until(ExpectedConditions.visibilityOf(element));
         driver.findElement((By)element).sendKeys(text);
     }
 
-    //Read Text
     public String readTextForWebElement (WebElement element){
         wait.until(ExpectedConditions.visibilityOf(element));
         return driver.findElement((By)element).getText();

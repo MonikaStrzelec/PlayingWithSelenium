@@ -21,7 +21,7 @@ public class HeaderPage extends BasePage {
         public By concactInNav = By.id("contact-link");
         public By shopPhoneInNav = By.xpath("//*[@class=\"shop-phone\"]");
 
-        public By textInShopPhone = By.xpath("//*[@class=\"shop-phone\"]"); //text poprawić!
+        public By textInShopPhone = By.xpath("//*[@class=\"shop-phone\"]");
         public By iconInShopPhone = By.xpath("//*[@class=\"shop-phone\"]/i");
         public By phoneNumberInShopPhone = By.xpath("//*[@class=\"shop-phone\"]/strong");
 
@@ -40,9 +40,8 @@ public class HeaderPage extends BasePage {
         public By cartStatusTextInContainer = By.xpath("//*[@id=\"header\"]/div[3]/div/div/div[3]/div/a/span[5]");
 
         //CLOTHING CATEGORIES:
-        public By categoriesContainerInContainer = By.xpath("//*[@id=\"block_top_menu\"]/div");
+        public By categoriesContainerInContainer = By.id("block_top_menu");
         //DRESSES
-
         public By dressesInCategories = By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]");
         public By casualDressesElementInDresses = By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[1]");
         public By eveningDressesElementInDresses = By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[2]");
