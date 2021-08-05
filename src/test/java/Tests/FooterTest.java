@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class FooterTest extends BaseTest {
 
+    //https://xray.tt.com.pl/browse/PRAK-22
     @Test
     public void locatingFooter() {
         FooterPage footerPage = new FooterPage(driver);
@@ -13,6 +14,7 @@ public class FooterTest extends BaseTest {
         Assertions.assertTrue(footerPage.isElementPresent(footerPage.footerContainer));
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-51
     @Test
     public void locatingNewsletterAndSocialMediaInFooter() {
         FooterPage footerPage = new FooterPage(driver);
@@ -21,6 +23,7 @@ public class FooterTest extends BaseTest {
         Assertions.assertTrue(footerPage.isElementPresent(footerPage.socialBlockContainerInFooter));
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-52
     @Test
     public void locatingElementsNewsletterInFooter() {
         FooterPage footerPage = new FooterPage(driver);
@@ -31,6 +34,7 @@ public class FooterTest extends BaseTest {
         }
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-54
     @Test
     public void locatingElementsSocialMediaInFooter() {
         FooterPage footerPage = new FooterPage(driver);
@@ -44,6 +48,7 @@ public class FooterTest extends BaseTest {
         }
     }
 
+  //https://xray.tt.com.pl/browse/PRAK-55
     @Test
     public void locatingElementsCategoriesInFooter() {
         FooterPage footerPage = new FooterPage(driver);
@@ -54,6 +59,7 @@ public class FooterTest extends BaseTest {
         }
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-56
     @Test
     public void locatingElementsInformationInFooter() {
         FooterPage footerPage = new FooterPage(driver);
@@ -71,6 +77,7 @@ public class FooterTest extends BaseTest {
         }
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-57
     @Test
     public void locatingElementsMyAccountInFooter() {
         FooterPage footerPage = new FooterPage(driver);
@@ -83,6 +90,8 @@ public class FooterTest extends BaseTest {
             Assertions.assertTrue(footerPage.isElementPresent(footerPage.personalInformationMyAccountContainer));
         }
     }
+
+    //https://xray.tt.com.pl/browse/PRAK-165
     @Test
     public void locatingElementsStoreInformationInFooter() {
         FooterPage footerPage = new FooterPage(driver);
@@ -98,7 +107,7 @@ public class FooterTest extends BaseTest {
         }
     }
 
-
+    //https://xray.tt.com.pl/browse/PRAK-58
     @Test
     public void locatingSignatureAndReservedSignInFooter() {
         FooterPage footerPage = new FooterPage(driver);
@@ -110,6 +119,7 @@ public class FooterTest extends BaseTest {
         }
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-20
     @Test
     public void locatingWebsiteInformation () {
         FooterPage footerPage = new FooterPage(driver);

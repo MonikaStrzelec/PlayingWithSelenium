@@ -1,15 +1,8 @@
 package Tests;
 
-import Pages.HeaderPage;
 import Pages.HomePage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
-import java.util.List;
-
 
 public class HomeTest extends BaseTest{
 
@@ -23,6 +16,7 @@ public class HomeTest extends BaseTest{
 
     }
 
+//https://xray.tt.com.pl/browse/PRAK-33
     @Test
     public void  locationForPopularAndBestSellers () {
         HomePage homePage = new HomePage(driver);
@@ -53,6 +47,7 @@ public class HomeTest extends BaseTest{
 
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-45
     @Test
     public void locationHomeContent () {
         HomePage homePage = new HomePage(driver);
@@ -60,6 +55,7 @@ public class HomeTest extends BaseTest{
         homePage.visibleWebElement(homePage.homeContent);
     }
 
+//https://xray.tt.com.pl/browse/PRAK-46
     @Test
     public void locatingHomeContentWithItems1_2_3 () {
         HomePage homePage = new HomePage(driver);
@@ -72,6 +68,7 @@ public class HomeTest extends BaseTest{
         );
     }
 
+//https://xray.tt.com.pl/browse/PRAK-59
     @Test
     public void locatingHomeContentWithItems4_5 () {
         HomePage homePage = new HomePage(driver);
@@ -83,6 +80,7 @@ public class HomeTest extends BaseTest{
         );
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-47
     @Test
     public void locationGrayItemBelowHomeContainer () {
         HomePage homePage = new HomePage(driver);
@@ -100,6 +98,7 @@ public class HomeTest extends BaseTest{
         );
     }
 
+//https://xray.tt.com.pl/browse/PRAK-49
     @Test
     public void displayOfInfoBlock () {
         HomePage homePage = new HomePage(driver);
@@ -127,6 +126,7 @@ public class HomeTest extends BaseTest{
         );
     }
 
+//https://xray.tt.com.pl/browse/PRAK-50
     @Test
     public void locationOfEditorialBlock () {
         HomePage homePage = new HomePage(driver);

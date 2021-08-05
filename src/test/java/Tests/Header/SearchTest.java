@@ -16,7 +16,7 @@ public class SearchTest extends BaseTest {
             headerPage.writeText(headerPage.searchTextInContainer, headerPage.text);
             headerPage.clickByElementBy(headerPage.searchButtonInContainer);
             headerPage.assertEqualsForExpectedUML(headerPage.serchWithTextUML);
-            if (headerPage.isElementPresent(By.xpath("//*[@id=\"center_column\"]/p"))) //jeśli jest napis
+            if (headerPage.isElementPresent(By.xpath("//*[@id=\"center_column\"]/p")))
             {
                 Assertions.assertEquals(headerPage.readText(By.xpath("//*[@id=\"center_column\"]/p")), "No results were found for your search \"test\"");
             }

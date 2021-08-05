@@ -1,4 +1,4 @@
-package Tests.Header;
+package Tests;
 
 import Pages.HeaderPage;
 import Pages.SingInPage;
@@ -17,6 +17,8 @@ public class SingInTest extends BaseTest {
             headerPage.assertEqualsForExpectedUML(headerPage.singInURL);
         }
     }
+
+    //https://xray.tt.com.pl/browse/PRAK-15
     @Test
     public void singInWithGoodData() {
         SingInPage singInPage = new SingInPage(driver);
@@ -25,6 +27,7 @@ public class SingInTest extends BaseTest {
         singInPage.assertEqualsForExpectedUML(singInPage.userAccountAfterSingIn);
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-25
     @Test
     public void singInWithGoodEmailAndBadPassword() {
         SingInPage singInPage = new SingInPage(driver);
@@ -35,6 +38,7 @@ public class SingInTest extends BaseTest {
         Assertions.assertEquals(singInPage.readText(singInPage.errorMesageTextElement), "Invalid password.");
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-72
     @Test
     public void singInWithBadEmailAndGoodPassword() {
         SingInPage singInPage = new SingInPage(driver);
@@ -94,6 +98,7 @@ public class SingInTest extends BaseTest {
         singInPage.assertEqualsForExpectedUML(singInPage.forgotPasswordUML);
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-125
     @Test
     public void locatingCreateAnAccount() {
         SingInPage singInPage = new SingInPage(driver);
@@ -105,7 +110,6 @@ public class SingInTest extends BaseTest {
                 ()->Assertions.assertTrue(singInPage.isElementPresent(singInPage.emailCreateElement)),
                 ()->Assertions.assertTrue(singInPage.isElementPresent(singInPage.buttonCreateAnAccount))
         );
-
     }
 
     @Test

@@ -25,6 +25,7 @@ public class HeaderTest extends BaseTest {
         }
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-60
     @Test
     public void locatingContainerInContainerAndClick(){
         HeaderPage headerPage = new HeaderPage(driver);
@@ -35,6 +36,7 @@ public class HeaderTest extends BaseTest {
         }
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-28
     @Test
     public void locatingElementsInNav() {
         HeaderPage headerPage = new HeaderPage(driver);
@@ -49,13 +51,16 @@ public class HeaderTest extends BaseTest {
         }
     }
 
-    @Test //SEARCH
+    //https://xray.tt.com.pl/browse/PRAK-18
+    @Test
     public void locatingSearchBoxInContainer(){
         HeaderPage headerPage = new HeaderPage(driver);
         headerPage.openHomePage();
         assertTrue(headerPage.searchBoxInContainer);
     }
-    @Test //LOGO
+
+    //https://xray.tt.com.pl/browse/PRAK-19
+    @Test
     public void locatingLogoInContainer(){
         HeaderPage headerPage = new HeaderPage(driver);
         headerPage.openHomePage();
@@ -64,7 +69,7 @@ public class HeaderTest extends BaseTest {
         headerPage.assertEqualsForExpectedUML(headerPage.logoUML);
     }
 
-//CLOTHING CATEGORIES
+    //https://xray.tt.com.pl/browse/PRAK-29
     @Test
     public void locatingTheElementsOfTheLowerContainerInHeader(){
         HeaderPage headerPage = new HeaderPage(driver);
@@ -81,6 +86,7 @@ public class HeaderTest extends BaseTest {
         }
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-21
     @Test
     public void locatingElementInClothingCategories(){
         HeaderPage headerPage = new HeaderPage(driver);

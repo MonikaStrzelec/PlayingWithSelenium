@@ -1,4 +1,4 @@
-package Tests.Header;
+package Tests;
 
 import Pages.ContactUsPage;
 import Pages.HeaderPage;
@@ -18,7 +18,7 @@ public class ContactUsTest extends BaseTest {
         }
     }
 
-
+    //https://xray.tt.com.pl/browse/PRAK-84
     @Test
     public void sendingEmailWithValidDataForCustomerService() {
         locatingConcactInNav();
@@ -34,6 +34,7 @@ public class ContactUsTest extends BaseTest {
         Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertSuccess), "Your message has been successfully sent to our team.");
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-53
     @Test
     public void sendingEmailWithValidDataForWebmaster() {
         HeaderPage headerPage = new HeaderPage(driver);
@@ -50,6 +51,7 @@ public class ContactUsTest extends BaseTest {
         Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertSuccess), "Your message has been successfully sent to our team.");
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-43
     @Test
     public void sendingEmailWithNoData() {
         HeaderPage headerPage = new HeaderPage(driver);
@@ -64,6 +66,7 @@ public class ContactUsTest extends BaseTest {
         Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertDanger), "There is 1 error\nInvalid email address.");
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-85
     @Test
     public void sendingEmailWithNoSubjectHeading() {
         HeaderPage headerPage = new HeaderPage(driver);
@@ -77,6 +80,7 @@ public class ContactUsTest extends BaseTest {
         Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertDanger), "There is 1 error\nPlease select a subject from the list provided.");
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-86
     @Test
     public void sendingEmailWithNoEmail() {
         HeaderPage headerPage = new HeaderPage(driver);
@@ -91,6 +95,7 @@ public class ContactUsTest extends BaseTest {
         Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertDanger), "There is 1 error\nInvalid email address.");
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-87
     @Test
     public void sendingEmailWithNoOrderReference() {
         locatingConcactInNav();
@@ -107,6 +112,7 @@ public class ContactUsTest extends BaseTest {
         Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertSuccess), "Your message has been successfully sent to our team.");
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-88
     @Test
     public void sendingEmailWithNoAttachFile() {
         locatingConcactInNav();
@@ -122,6 +128,7 @@ public class ContactUsTest extends BaseTest {
         Assertions.assertEquals(contactUsPage.readText(contactUsPage.alertSuccess), "Your message has been successfully sent to our team.");
     }
 
+    //https://xray.tt.com.pl/browse/PRAK-89
     @Test
     public void sendingEmailWithNoMessage() {
         locatingConcactInNav();
